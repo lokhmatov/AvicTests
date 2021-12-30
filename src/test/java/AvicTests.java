@@ -3,6 +3,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
+import pages.BasePage;
 
 import java.util.concurrent.TimeUnit;
 
@@ -45,6 +46,7 @@ public class AvicTests {
         assertTrue(element.getText().contains("PlayStation 5")); //проверяем что Title содержит название раздела ("PlayStation 5")
     }
 
+
     @Test(priority = 3)
     public void checkAddToCartWithCorrectParameters() {
         driver.findElement(xpath("//span[@class='sidebar-item']")).click(); //кликаем на каталог
@@ -60,7 +62,7 @@ public class AvicTests {
         String actualProductsInCart =
                 driver.findElement(xpath("//span[@class='name'][contains(text(), 'Apple TV')]"))
                         .getText();
-        assertEquals(actualProductsInCart, "Apple TV 4K 2021 64GB (MXH02)");    //проверяем что в корзине верся на 64GB
+        assertEquals(actualProductsInCart, "Apple TV 4K 2021 64GB (MXH02)");    //проверяем что в корзине версия на 64GB
     }
 
 
